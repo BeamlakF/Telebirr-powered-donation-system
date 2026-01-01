@@ -1,0 +1,27 @@
+{
+  "name": "donate",
+  "version": "1.0.0",
+  "description": "node app",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeamlakF/Telebirr-powered-donation-system.git"
+  },
+  "keywords": [
+    "payment"
+  ],
+  "author": "Beam",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/BeamlakF/Telebirr-powered-donation-system/issues"
+  },
+  "homepage": "https://github.com/BeamlakF/Telebirr-powered-donation-system#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
