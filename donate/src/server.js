@@ -1,10 +1,12 @@
-const app = require('./app');
-/**Imports the Express app
-No server started yet**/
 
 require('dotenv').config();
 /**Loads variables from .env into process.env
 This is how secrets enter your app safely**/
+
+const app = require('./app');
+/**Imports the Express app
+No server started yet**/
+
 
 const PORT = process.env.PORT || 3000;
 

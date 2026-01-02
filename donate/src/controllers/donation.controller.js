@@ -28,6 +28,27 @@ exports.createDonation = async (req, res) => {
 };
 
 exports.telebirrCallback = (req, res) => {
-  // we will complete this in Phase 5
+  const { sign, orderId, amount, status } = req.body;
+
+  const isValid = verifyTelebirr(
+    { orderId, amount, status },
+    sign,
+    process.env.TELEBIRR_PUBLIC_KEY
+  );
+
+  if (!isValid) {
+    return res.status(400).send('Invalid signature');
+  }
+
+  const donation = donations.find(d => d.id === orderId);
+
+  if (!donation) return res.status(404).send('Not found');
+
+  if (donation.status === 'SUCCESS') {
+    return res.send('OK'); // idempotent
+  }
+
+  donation.status = status === 'SUCCESS' ? 'SUCCESS' : 'FAILED';
+
   res.send('OK');
 };
